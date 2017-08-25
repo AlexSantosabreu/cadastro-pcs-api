@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
-  namespace: api defaults:{ form: :json }, constrains: { subdomain: 'api'}, path: "/" do
-   namespace :v1, path "/", constrains: ApiVersionConstraint.new(version: 1, default: true) do
-
+  namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api'}, path: "/" do
+   
+    namespace :v1, path: "/", constraints: ApiVersionConstraint.new(version: 1, default: true) do
+    
    end 
   end  
 
